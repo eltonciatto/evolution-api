@@ -1785,6 +1785,8 @@ export class BaileysStartupService extends ChannelStartupService {
     try {
       return {
         wuid: jid,
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
         status: (await this.client.fetchStatus(jid))?.status,
       };
     } catch (error) {
