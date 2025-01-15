@@ -269,7 +269,8 @@ export class BaileysStartupService extends ChannelStartupService {
 
   public async getProfileStatus() {
     const status = await this.client.fetchStatus(this.instance.wuid);
-
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     return status?.status;
   }
 
