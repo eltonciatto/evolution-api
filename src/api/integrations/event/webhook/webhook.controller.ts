@@ -128,6 +128,7 @@ export class WebhookController extends EventController implements EventControlle
               baseURL,
               headers: webhookHeaders as Record<string, string> | undefined,
               timeout: webhookConfig.REQUEST?.TIMEOUT_MS ?? 30000,
+              maxRedirects: 0,
             });
 
             await this.retryWebhookRequest(httpService, webhookData, `${origin}.sendData-Webhook`, baseURL, serverUrl);
@@ -172,6 +173,7 @@ export class WebhookController extends EventController implements EventControlle
             const httpService = axios.create({
               baseURL: globalURL,
               timeout: webhookConfig.REQUEST?.TIMEOUT_MS ?? 30000,
+              maxRedirects: 0,
             });
 
             await this.retryWebhookRequest(
